@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dice Roll</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_label">Dice Roll!</string>
+    <string name="button_label">Let\'s Roll!</string>
+    <string name="mod_label">"Enter your mod!"</string>
+    <string name="result_label">"Result</string>
+</resources>
+
