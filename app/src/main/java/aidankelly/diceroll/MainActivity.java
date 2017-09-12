@@ -49,10 +49,18 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 //generate a random number between 1 and 20, then add the modifier to it
-                int roll = rand.nextInt(20) + 1 + mod;
+                int randomNum = rand.nextInt(20)+1;
+                int roll = randomNum + mod;
 
+                if(randomNum==20){
+                    resultText.setText(""+roll+"! \nNAT 20!");
+                }else if(randomNum==1){
+                    resultText.setText(""+roll+" \nNat 1 :(");
+                }else{
+                    resultText.setText(""+roll);
+                }
                 //we change the result text field to show the roll.
-                resultText.setText(""+roll);
+
             }
         });
 
