@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -33,8 +34,24 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 Random rand = new Random();
-                int mod = Integer.valueOf(mEdit.getText().toString());
+                String s = mEdit.getText().toString();
+
+                //initalizes the dice modifier.
+                int mod = 0;
+
+                //checks if the field is empty. If it is the mod is 0.
+                if(s.matches("")){
+                    mod = 0;
+
+                //if field is not empty we use what is inside.
+                }else{
+                    mod = Integer.valueOf(mEdit.getText().toString());
+                }
+
+                //generate a random number between 1 and 20, then add the modifier to it
                 int roll = rand.nextInt(20) + 1 + mod;
+
+                //we change the result text field to show the roll.
                 resultText.setText(""+roll);
             }
         });
