@@ -34,33 +34,39 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View v) {
                 Random rand = new Random();
-                String s = mEdit.getText().toString();
 
                 //initalizes the dice modifier.
-                int mod = 0;
+                long mod;
 
                 //checks if the field is empty. If it is the mod is 0.
-                if(s.matches("")){
+                if(mEdit.getText().toString().matches("")){
                     mod = 0;
+                    long randomNum = rand.nextInt(20)+1;
+                    long roll = randomNum + mod;
+
+                    if(randomNum==20){
+                        resultText.setText(""+roll+"! \nNAT 20!");
+                    }else if(randomNum==1){
+                        resultText.setText(""+roll+" \nNat 1 :(");
+                    }else{
+                        resultText.setText(""+roll);
+                    }
 
                 //if field is not empty we use what is inside.
                 }else{
                     mod = Integer.valueOf(mEdit.getText().toString());
+
+                    long randomNum = rand.nextInt(20)+1;
+                    long roll = randomNum + mod;
+
+                    if(randomNum==20){
+                        resultText.setText(""+roll+"! \nNAT 20!");
+                    }else if(randomNum==1){
+                        resultText.setText(""+roll+" \nNat 1 :(");
+                    }else{
+                        resultText.setText(""+roll);
+                    }
                 }
-
-                //generate a random number between 1 and 20, then add the modifier to it
-                int randomNum = rand.nextInt(20)+1;
-                int roll = randomNum + mod;
-
-                if(randomNum==20){
-                    resultText.setText(""+roll+"! \nNAT 20!");
-                }else if(randomNum==1){
-                    resultText.setText(""+roll+" \nNat 1 :(");
-                }else{
-                    resultText.setText(""+roll);
-                }
-                //we change the result text field to show the roll.
-
             }
         });
 
